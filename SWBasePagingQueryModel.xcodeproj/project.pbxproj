@@ -8,24 +8,37 @@
 
 /* Begin PBXBuildFile section */
 		3666D64520A1A06F00EC030F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3666D64420A1A06F00EC030F /* AppDelegate.m */; };
-		3666D64820A1A06F00EC030F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3666D64720A1A06F00EC030F /* ViewController.m */; };
 		3666D64B20A1A06F00EC030F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3666D64920A1A06F00EC030F /* Main.storyboard */; };
 		3666D64D20A1A07100EC030F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3666D64C20A1A07100EC030F /* Assets.xcassets */; };
 		3666D65020A1A07100EC030F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3666D64E20A1A07100EC030F /* LaunchScreen.storyboard */; };
 		3666D65320A1A07100EC030F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3666D65220A1A07100EC030F /* main.m */; };
+		3666D65C20A1A17B00EC030F /* SWBasePagingQueryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3666D65B20A1A17B00EC030F /* SWBasePagingQueryModel.m */; };
+		3666D65F20A1A83100EC030F /* MyPagingQueryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3666D65E20A1A83100EC030F /* MyPagingQueryModel.m */; };
+		36F95ABA20A2915C000F388B /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F95AB920A2915C000F388B /* TableViewController.m */; };
+		36F95ABD20A2C9F0000F388B /* UIScrollView+SWBasePagingQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F95ABC20A2C9F0000F388B /* UIScrollView+SWBasePagingQuery.m */; };
+		D278004869A91D7760246E16 /* libPods-SWBasePagingQueryModel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CDB2D9709E6E34440B3D9BB /* libPods-SWBasePagingQueryModel.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		070DB117ABB53E9BC79F69DE /* Pods-SWBasePagingQueryModel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWBasePagingQueryModel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SWBasePagingQueryModel/Pods-SWBasePagingQueryModel.debug.xcconfig"; sourceTree = "<group>"; };
 		3666D64020A1A06F00EC030F /* SWBasePagingQueryModel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SWBasePagingQueryModel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3666D64320A1A06F00EC030F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3666D64420A1A06F00EC030F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3666D64620A1A06F00EC030F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3666D64720A1A06F00EC030F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3666D64A20A1A06F00EC030F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3666D64C20A1A07100EC030F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3666D64F20A1A07100EC030F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3666D65120A1A07100EC030F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3666D65220A1A07100EC030F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3666D65A20A1A17B00EC030F /* SWBasePagingQueryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWBasePagingQueryModel.h; sourceTree = "<group>"; };
+		3666D65B20A1A17B00EC030F /* SWBasePagingQueryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWBasePagingQueryModel.m; sourceTree = "<group>"; };
+		3666D65D20A1A83100EC030F /* MyPagingQueryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyPagingQueryModel.h; sourceTree = "<group>"; };
+		3666D65E20A1A83100EC030F /* MyPagingQueryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyPagingQueryModel.m; sourceTree = "<group>"; };
+		36F95AB820A2915C000F388B /* TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		36F95AB920A2915C000F388B /* TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		36F95ABB20A2C9F0000F388B /* UIScrollView+SWBasePagingQuery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SWBasePagingQuery.h"; sourceTree = "<group>"; };
+		36F95ABC20A2C9F0000F388B /* UIScrollView+SWBasePagingQuery.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SWBasePagingQuery.m"; sourceTree = "<group>"; };
+		3CDB2D9709E6E34440B3D9BB /* libPods-SWBasePagingQueryModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SWBasePagingQueryModel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDE4DCF65DF48AB5ACC7352A /* Pods-SWBasePagingQueryModel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWBasePagingQueryModel.release.xcconfig"; path = "Pods/Target Support Files/Pods-SWBasePagingQueryModel/Pods-SWBasePagingQueryModel.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D278004869A91D7760246E16 /* libPods-SWBasePagingQueryModel.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +58,8 @@
 			children = (
 				3666D64220A1A06F00EC030F /* SWBasePagingQueryModel */,
 				3666D64120A1A06F00EC030F /* Products */,
+				8A9154714D2F44F48A25BAC9 /* Pods */,
+				F9428A2996091092845C7162 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,10 +74,13 @@
 		3666D64220A1A06F00EC030F /* SWBasePagingQueryModel */ = {
 			isa = PBXGroup;
 			children = (
+				3666D65920A1A16F00EC030F /* SWBasePagingQueryModel */,
 				3666D64320A1A06F00EC030F /* AppDelegate.h */,
 				3666D64420A1A06F00EC030F /* AppDelegate.m */,
-				3666D64620A1A06F00EC030F /* ViewController.h */,
-				3666D64720A1A06F00EC030F /* ViewController.m */,
+				36F95AB820A2915C000F388B /* TableViewController.h */,
+				36F95AB920A2915C000F388B /* TableViewController.m */,
+				3666D65D20A1A83100EC030F /* MyPagingQueryModel.h */,
+				3666D65E20A1A83100EC030F /* MyPagingQueryModel.m */,
 				3666D64920A1A06F00EC030F /* Main.storyboard */,
 				3666D64C20A1A07100EC030F /* Assets.xcassets */,
 				3666D64E20A1A07100EC030F /* LaunchScreen.storyboard */,
@@ -71,6 +90,34 @@
 			path = SWBasePagingQueryModel;
 			sourceTree = "<group>";
 		};
+		3666D65920A1A16F00EC030F /* SWBasePagingQueryModel */ = {
+			isa = PBXGroup;
+			children = (
+				3666D65A20A1A17B00EC030F /* SWBasePagingQueryModel.h */,
+				3666D65B20A1A17B00EC030F /* SWBasePagingQueryModel.m */,
+				36F95ABB20A2C9F0000F388B /* UIScrollView+SWBasePagingQuery.h */,
+				36F95ABC20A2C9F0000F388B /* UIScrollView+SWBasePagingQuery.m */,
+			);
+			path = SWBasePagingQueryModel;
+			sourceTree = "<group>";
+		};
+		8A9154714D2F44F48A25BAC9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				070DB117ABB53E9BC79F69DE /* Pods-SWBasePagingQueryModel.debug.xcconfig */,
+				BDE4DCF65DF48AB5ACC7352A /* Pods-SWBasePagingQueryModel.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F9428A2996091092845C7162 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3CDB2D9709E6E34440B3D9BB /* libPods-SWBasePagingQueryModel.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -78,9 +125,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3666D65620A1A07100EC030F /* Build configuration list for PBXNativeTarget "SWBasePagingQueryModel" */;
 			buildPhases = (
+				418F2BC800108CB716326F5C /* [CP] Check Pods Manifest.lock */,
 				3666D63C20A1A06F00EC030F /* Sources */,
 				3666D63D20A1A06F00EC030F /* Frameworks */,
 				3666D63E20A1A06F00EC030F /* Resources */,
+				76DD18B7A7F5CB05E12BB234 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -136,12 +185,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		418F2BC800108CB716326F5C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SWBasePagingQueryModel-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		76DD18B7A7F5CB05E12BB234 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SWBasePagingQueryModel/Pods-SWBasePagingQueryModel-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SWBasePagingQueryModel/Pods-SWBasePagingQueryModel-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3666D63C20A1A06F00EC030F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3666D64820A1A06F00EC030F /* ViewController.m in Sources */,
+				3666D65F20A1A83100EC030F /* MyPagingQueryModel.m in Sources */,
+				36F95ABA20A2915C000F388B /* TableViewController.m in Sources */,
+				36F95ABD20A2C9F0000F388B /* UIScrollView+SWBasePagingQuery.m in Sources */,
+				3666D65C20A1A17B00EC030F /* SWBasePagingQueryModel.m in Sources */,
 				3666D65320A1A07100EC030F /* main.m in Sources */,
 				3666D64520A1A06F00EC030F /* AppDelegate.m in Sources */,
 			);
@@ -281,6 +372,7 @@
 		};
 		3666D65720A1A07100EC030F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 070DB117ABB53E9BC79F69DE /* Pods-SWBasePagingQueryModel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -299,6 +391,7 @@
 		};
 		3666D65820A1A07100EC030F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BDE4DCF65DF48AB5ACC7352A /* Pods-SWBasePagingQueryModel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

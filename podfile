@@ -1,0 +1,7 @@
+target 'SWBasePagingQueryModel' do
+
+pod 'MJRefresh'
+pod 'ReactiveObjC'
+pod 'SWExtension'
+
+end

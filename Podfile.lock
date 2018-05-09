@@ -1,0 +1,28 @@
+PODS:
+  - MBProgressHUD (1.1.0)
+  - MJRefresh (3.1.15.3)
+  - ReactiveObjC (3.1.0)
+  - SWExtension (1.4.3):
+    - MBProgressHUD
+
+DEPENDENCIES:
+  - MJRefresh
+  - ReactiveObjC
+  - SWExtension
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - MBProgressHUD
+    - MJRefresh
+    - ReactiveObjC
+    - SWExtension
+
+SPEC CHECKSUMS:
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
+  ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
+  SWExtension: 7760d9db64c679c011bfceb981361fc497c0eac5
+
+PODFILE CHECKSUM: 2579f5a2fd5c64d67f974b444dec85604e45a115
+
+COCOAPODS: 1.5.0

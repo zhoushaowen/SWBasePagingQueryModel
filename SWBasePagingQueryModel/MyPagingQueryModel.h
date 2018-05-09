@@ -1,15 +1,13 @@
 //
-//  ViewController.h
+//  MyPagingQueryModel.h
 //  SWBasePagingQueryModel
 //
 //  Created by zhoushaowen on 2018/5/8.
 //  Copyright © 2018年 zhoushaowen. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "SWBasePagingQueryModel.h"
 
-@interface ViewController : UIViewController
-
+@interface MyPagingQueryModel : SWBasePagingQueryModel
 
 @end
-
