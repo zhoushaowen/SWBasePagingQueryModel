@@ -32,6 +32,12 @@
  */
 @property (nonatomic,readonly) BOOL isFetchingMore;
 
+#pragma mark - Params
+/**
+ 网络请求传递的参数
+ */
+@property (nullable,nonatomic,strong) id params;
+
 #pragma mark - Invoke
 
 /**
