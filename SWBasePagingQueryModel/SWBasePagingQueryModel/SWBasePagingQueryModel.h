@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+static const NSInteger SWUnknownCount = 0;
+
 @interface SWBasePagingQueryModel : NSObject
 
 #pragma mark - KVO
@@ -56,7 +58,10 @@
  网络异步请求,你需要重写此方法
 
  @param pageIndex 刷新的索引,从0开始
- @param completedBlock 异步请求完成的block,在网络请求结束之后必须要调用此block
+ @param completedBlock 异步请求完成的block,在网络请求结束之后必须要调用此block;
+ error:网络请求之后返回的错误
+ totalCount:分页数据的总个数,如果不知道可以传0
+ result:请求到的当前页的数据
  */
 - (void)asyncFetchWithPageIndex:(NSInteger)pageIndex completion:(void(^)(NSError *error, NSInteger totalCount, NSArray *result))completedBlock;
 

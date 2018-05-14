@@ -16,6 +16,7 @@
 
 - (void)asyncFetchWithPageIndex:(NSInteger)pageIndex completion:(void(^)(NSError *error, NSInteger totalCount, NSArray *result))completedBlock {
     NSLog(@"%ld",(long)pageIndex);
+    //模拟假的网路请求
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         switch (pageIndex) {
             case 3:
@@ -24,13 +25,13 @@
                 if(!flag){
                     flag = YES;
                     NSError *error = [NSError errorWithDomain:NSURLErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey:@"网络错误!"}];
-                    completedBlock(error,0,nil);
+                    completedBlock(error,SWUnknownCount,nil);
                 }else{
                     NSMutableArray *arr = [NSMutableArray arrayWithCapacity:20];
                     for(int i=0;i<[self pageSize];i++){
                         [arr addObject:@"测试数据"];
                     }
-                    completedBlock(nil,0,arr);
+                    completedBlock(nil,SWUnknownCount,arr);
                 }
             }
                 break;
@@ -40,7 +41,7 @@
                 for(int i=0;i<3;i++){
                     [arr addObject:@"测试数据"];
                 }
-                completedBlock(nil,0,arr);
+                completedBlock(nil,SWUnknownCount,arr);
             }
                 break;
                 
@@ -50,7 +51,7 @@
                 for(int i=0;i<[self pageSize];i++){
                     [arr addObject:@"测试数据"];
                 }
-                completedBlock(nil,0,arr);
+                completedBlock(nil,SWUnknownCount,arr);
             }
                 break;
         }
