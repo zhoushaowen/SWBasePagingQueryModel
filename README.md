@@ -3,7 +3,7 @@ a paging query kit
 
 ### pod 'SWBasePagingQueryModel'
 
-我们开发的时候经常遇到有的页面需要进行分页查询请求,在做下拉刷新和上拉加载更多的时候,每次都会写一一堆重复代码.现在有了这个工具,你们可以实现一句代码搞定tableView和collectionview的下拉刷新和上拉加载更多.
+我们开发的时候经常遇到有的页面需要进行分页查询请求,在做下拉刷新和上拉加载更多的时候,每次都会写一堆重复代码.现在有了这个工具,你可以实现一句代码搞定tableView和collectionview的下拉刷新和上拉加载更多.
 ```
 [self.tableView setDefaultPagingQueryWithModel:[MyPagingQueryModel new] completion:^(NSError *error) {
         @strongify(self)
