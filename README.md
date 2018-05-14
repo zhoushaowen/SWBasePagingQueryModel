@@ -22,7 +22,7 @@ a paging query kit
 
 如果你想使用自定义样式的MJRefresh,那么调用下面的方法就行了
 ```
-- (void)setCustomPagingQueryWithMjHeader:(MJRefreshNormalHeader *)mjHeader mjfooter:(MJRefreshAutoNormalFooter *)mjFooter pagingQueryModel:(SWBasePagingQueryModel *)pagingQueryModel completion:(SWFetchListCompletedBlock)fetchListCompletedBlock;
+- (void)setCustomPagingQueryWithMjHeader:(MJRefreshNormalHeader *)mjHeader mjFooter:(MJRefreshAutoNormalFooter *)mjFooter pagingQueryModel:(SWBasePagingQueryModel *)pagingQueryModel completion:(SWFetchListCompletedBlock)fetchListCompletedBlock;
 ```
 
 自定义一个类集成自SWBasePagingQueryModel就可以了,然后在自定义类里面实现下面的方法就可以了

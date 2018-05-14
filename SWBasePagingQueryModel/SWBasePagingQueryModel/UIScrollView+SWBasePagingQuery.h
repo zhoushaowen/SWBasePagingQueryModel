@@ -20,6 +20,6 @@ typedef void(^SWFetchListCompletedBlock)(NSError *error);
 @property (nonatomic,readonly,strong) SWFetchListCompletedBlock fetchListCompletedBlock;
 
 - (void)setDefaultPagingQueryWithModel:(SWBasePagingQueryModel *)pagingQueryModel completion:(SWFetchListCompletedBlock)fetchListCompletedBlock;
-- (void)setCustomPagingQueryWithMjHeader:(MJRefreshNormalHeader *)mjHeader mjfooter:(MJRefreshAutoNormalFooter *)mjFooter pagingQueryModel:(SWBasePagingQueryModel *)pagingQueryModel completion:(SWFetchListCompletedBlock)fetchListCompletedBlock;
+- (void)setCustomPagingQueryWithMjHeader:(MJRefreshNormalHeader *)mjHeader mjFooter:(MJRefreshAutoNormalFooter *)mjFooter pagingQueryModel:(SWBasePagingQueryModel *)pagingQueryModel completion:(SWFetchListCompletedBlock)fetchListCompletedBlock;
 
 @end

@@ -28,7 +28,7 @@ static void *key_racDisposables = &key_racDisposables;
 
 @implementation UIScrollView (SWBasePagingQuery)
 
-- (void)setCustomPagingQueryWithMjHeader:(MJRefreshNormalHeader *)mjHeader mjfooter:(MJRefreshAutoNormalFooter *)mjFooter pagingQueryModel:(SWBasePagingQueryModel *)pagingQueryModel completion:(SWFetchListCompletedBlock)fetchListCompletedBlock {
+- (void)setCustomPagingQueryWithMjHeader:(MJRefreshNormalHeader *)mjHeader mjFooter:(MJRefreshAutoNormalFooter *)mjFooter pagingQueryModel:(SWBasePagingQueryModel *)pagingQueryModel completion:(SWFetchListCompletedBlock)fetchListCompletedBlock {
     self.pagingQueryModel = pagingQueryModel;
     self.fetchListCompletedBlock = fetchListCompletedBlock;
     @weakify(self)
@@ -82,7 +82,7 @@ static void *key_racDisposables = &key_racDisposables;
 }
 
 - (void)setDefaultPagingQueryWithModel:(SWBasePagingQueryModel *)pagingQueryModel completion:(SWFetchListCompletedBlock)fetchListCompletedBlock {
-    [self setCustomPagingQueryWithMjHeader:[MJRefreshNormalHeader new] mjfooter:[MJRefreshAutoNormalFooter new] pagingQueryModel:pagingQueryModel completion:fetchListCompletedBlock];
+    [self setCustomPagingQueryWithMjHeader:[MJRefreshNormalHeader new] mjFooter:[MJRefreshAutoNormalFooter new] pagingQueryModel:pagingQueryModel completion:fetchListCompletedBlock];
 }
 
 - (void)setPagingQueryModel:(SWBasePagingQueryModel *)pagingQueryModel {
