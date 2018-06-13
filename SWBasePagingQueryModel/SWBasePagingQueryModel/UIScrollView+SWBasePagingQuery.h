@@ -16,10 +16,10 @@ typedef void(^SWFetchListCompletedBlock)(NSError *error);
 
 @interface UIScrollView (SWBasePagingQuery)
 
-@property (nonatomic,readonly,strong) SWBasePagingQueryModel *pagingQueryModel;
-@property (nonatomic,readonly,strong) SWFetchListCompletedBlock fetchListCompletedBlock;
+@property (nonatomic,readonly,strong) SWBasePagingQueryModel *sw_pagingQueryModel;
+@property (nonatomic,readonly,strong) SWFetchListCompletedBlock sw_fetchListCompletedBlock;
 
-- (void)setDefaultPagingQueryWithModel:(SWBasePagingQueryModel *)pagingQueryModel completion:(SWFetchListCompletedBlock)fetchListCompletedBlock;
-- (void)setCustomPagingQueryWithMjHeader:(MJRefreshNormalHeader *)mjHeader mjFooter:(MJRefreshAutoNormalFooter *)mjFooter pagingQueryModel:(SWBasePagingQueryModel *)pagingQueryModel completion:(SWFetchListCompletedBlock)fetchListCompletedBlock;
+- (void)sw_setDefaultPagingQueryWithModel:(SWBasePagingQueryModel *)pagingQueryModel completion:(SWFetchListCompletedBlock)fetchListCompletedBlock;
+- (void)sw_setCustomPagingQueryWithMjHeader:(MJRefreshNormalHeader *)mjHeader mjFooter:(MJRefreshAutoNormalFooter *)mjFooter pagingQueryModel:(SWBasePagingQueryModel *)pagingQueryModel completion:(SWFetchListCompletedBlock)fetchListCompletedBlock;
 
 @end

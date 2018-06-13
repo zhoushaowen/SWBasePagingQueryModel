@@ -20,46 +20,46 @@ static void *key_racDisposables = &key_racDisposables;
 
 @interface UIScrollView ()
 
-@property (nonatomic,strong) SWBasePagingQueryModel *pagingQueryModel;
-@property (nonatomic,strong) SWFetchListCompletedBlock fetchListCompletedBlock;
-@property (nonatomic,strong) NSMutableArray<RACDisposable *> *racDisposables;
+@property (nonatomic,strong) SWBasePagingQueryModel *sw_pagingQueryModel;
+@property (nonatomic,strong) SWFetchListCompletedBlock sw_fetchListCompletedBlock;
+@property (nonatomic,strong) NSMutableArray<RACDisposable *> *sw_racDisposables;
 
 @end
 
 @implementation UIScrollView (SWBasePagingQuery)
 
-- (void)setCustomPagingQueryWithMjHeader:(MJRefreshNormalHeader *)mjHeader mjFooter:(MJRefreshAutoNormalFooter *)mjFooter pagingQueryModel:(SWBasePagingQueryModel *)pagingQueryModel completion:(SWFetchListCompletedBlock)fetchListCompletedBlock {
-    self.pagingQueryModel = pagingQueryModel;
-    self.fetchListCompletedBlock = fetchListCompletedBlock;
+- (void)sw_setCustomPagingQueryWithMjHeader:(MJRefreshNormalHeader *)mjHeader mjFooter:(MJRefreshAutoNormalFooter *)mjFooter pagingQueryModel:(SWBasePagingQueryModel *)pagingQueryModel completion:(SWFetchListCompletedBlock)fetchListCompletedBlock {
+    self.sw_pagingQueryModel = pagingQueryModel;
+    self.sw_fetchListCompletedBlock = fetchListCompletedBlock;
     @weakify(self)
     mjHeader.refreshingBlock = ^{
         @strongify(self)
-        [self.pagingQueryModel fetchBeginning];
+        [self.sw_pagingQueryModel fetchBeginning];
     };
     self.mj_header = mjHeader;
     mjFooter.refreshingBlock = ^{
         @strongify(self)
-        [self.pagingQueryModel fetchMore];
+        [self.sw_pagingQueryModel fetchMore];
     };
     self.mj_footer = mjFooter;
-    [self.racDisposables enumerateObjectsUsingBlock:^(RACDisposable * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.sw_racDisposables enumerateObjectsUsingBlock:^(RACDisposable * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [obj dispose];
     }];
-    [self.racDisposables removeAllObjects];
-    [self.racDisposables addObject:[self.pagingQueryModel rac_observeKeyPath:@"hasMore" options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew observer:nil block:^(id value, NSDictionary *change, BOOL causedByDealloc, BOOL affectedOnlyLastComponent) {
+    [self.sw_racDisposables removeAllObjects];
+    [self.sw_racDisposables addObject:[self.sw_pagingQueryModel rac_observeKeyPath:@"hasMore" options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew observer:nil block:^(id value, NSDictionary *change, BOOL causedByDealloc, BOOL affectedOnlyLastComponent) {
         @strongify(self)
-        self.mj_footer.hidden = !self.pagingQueryModel.hasMore;
+        self.mj_footer.hidden = !self.sw_pagingQueryModel.hasMore;
     }]];
-    [self.racDisposables addObject:[self.pagingQueryModel rac_observeKeyPath:@"isFetchingMore" options:NSKeyValueObservingOptionNew observer:nil block:^(id value, NSDictionary *change, BOOL causedByDealloc, BOOL affectedOnlyLastComponent) {
+    [self.sw_racDisposables addObject:[self.sw_pagingQueryModel rac_observeKeyPath:@"isFetchingMore" options:NSKeyValueObservingOptionNew observer:nil block:^(id value, NSDictionary *change, BOOL causedByDealloc, BOOL affectedOnlyLastComponent) {
         @strongify(self)
-        self.mj_header.hidden = self.pagingQueryModel.isFetchingMore;
+        self.mj_header.hidden = self.sw_pagingQueryModel.isFetchingMore;
     }]];
-    [self.racDisposables addObject:[self.pagingQueryModel rac_observeKeyPath:@"fetchedData" options:NSKeyValueObservingOptionNew observer:nil block:^(id value, NSDictionary *change, BOOL causedByDealloc, BOOL affectedOnlyLastComponent) {
+    [self.sw_racDisposables addObject:[self.sw_pagingQueryModel rac_observeKeyPath:@"fetchedData" options:NSKeyValueObservingOptionNew observer:nil block:^(id value, NSDictionary *change, BOOL causedByDealloc, BOOL affectedOnlyLastComponent) {
         @strongify(self)
         if(self.mj_header.isRefreshing){
             [self.mj_header endRefreshing];
         }
-        if(!self.pagingQueryModel.hasMore){
+        if(!self.sw_pagingQueryModel.hasMore){
             self.mj_footer.hidden = NO;
             [self.mj_footer endRefreshingWithNoMoreData];
         }else{
@@ -73,48 +73,46 @@ static void *key_racDisposables = &key_racDisposables;
             [(UICollectionView *)self reloadData];
         }
     }]];
-    [self.racDisposables addObject:[self.pagingQueryModel rac_observeKeyPath:@"fetchError" options:NSKeyValueObservingOptionNew observer:nil block:^(id value, NSDictionary *change, BOOL causedByDealloc, BOOL affectedOnlyLastComponent) {
+    [self.sw_racDisposables addObject:[self.sw_pagingQueryModel rac_observeKeyPath:@"fetchError" options:NSKeyValueObservingOptionNew observer:nil block:^(id value, NSDictionary *change, BOOL causedByDealloc, BOOL affectedOnlyLastComponent) {
         @strongify(self)
-        if(self.fetchListCompletedBlock){
-            self.fetchListCompletedBlock(self.pagingQueryModel.fetchError);
+        if(self.sw_fetchListCompletedBlock){
+            self.sw_fetchListCompletedBlock(self.sw_pagingQueryModel.fetchError);
         }
     }]];
 }
 
-- (void)setDefaultPagingQueryWithModel:(SWBasePagingQueryModel *)pagingQueryModel completion:(SWFetchListCompletedBlock)fetchListCompletedBlock {
-    [self setCustomPagingQueryWithMjHeader:[MJRefreshNormalHeader new] mjFooter:[MJRefreshAutoNormalFooter new] pagingQueryModel:pagingQueryModel completion:fetchListCompletedBlock];
+- (void)sw_setDefaultPagingQueryWithModel:(SWBasePagingQueryModel *)pagingQueryModel completion:(SWFetchListCompletedBlock)fetchListCompletedBlock {
+    [self sw_setCustomPagingQueryWithMjHeader:[MJRefreshNormalHeader new] mjFooter:[MJRefreshAutoNormalFooter new] pagingQueryModel:pagingQueryModel completion:fetchListCompletedBlock];
 }
 
-- (void)setPagingQueryModel:(SWBasePagingQueryModel *)pagingQueryModel {
-    objc_setAssociatedObject(self, key_pagingQueryModel, pagingQueryModel, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setSw_pagingQueryModel:(SWBasePagingQueryModel *)sw_pagingQueryModel {
+    objc_setAssociatedObject(self, @selector(sw_pagingQueryModel), sw_pagingQueryModel, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (SWBasePagingQueryModel *)pagingQueryModel {
-    return objc_getAssociatedObject(self, key_pagingQueryModel);
+- (SWBasePagingQueryModel *)sw_pagingQueryModel {
+    return objc_getAssociatedObject(self, @selector(sw_pagingQueryModel));
 }
 
-- (void)setFetchListCompletedBlock:(SWFetchListCompletedBlock)fetchListCompletedBlock {
-    objc_setAssociatedObject(self, key_fetchListCompletedBlock, fetchListCompletedBlock, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setSw_fetchListCompletedBlock:(SWFetchListCompletedBlock)sw_fetchListCompletedBlock {
+    objc_setAssociatedObject(self, @selector(sw_fetchListCompletedBlock), sw_fetchListCompletedBlock, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (SWFetchListCompletedBlock)fetchListCompletedBlock {
-    return objc_getAssociatedObject(self, key_fetchListCompletedBlock);
+- (SWFetchListCompletedBlock)sw_fetchListCompletedBlock {
+    return objc_getAssociatedObject(self, @selector(sw_fetchListCompletedBlock));
 }
 
-- (void)setRacDisposables:(NSMutableArray<RACDisposable *> *)racDisposables {
-    objc_setAssociatedObject(self, key_racDisposables, racDisposables, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setSw_racDisposables:(NSMutableArray<RACDisposable *> *)sw_racDisposables {
+    objc_setAssociatedObject(self, @selector(sw_racDisposables), sw_racDisposables, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (NSMutableArray<RACDisposable *> *)racDisposables {
-    NSMutableArray *disposables = objc_getAssociatedObject(self, key_racDisposables);
+- (NSMutableArray<RACDisposable *> *)sw_racDisposables {
+    NSMutableArray *disposables = objc_getAssociatedObject(self, @selector(sw_racDisposables));
     if(!disposables){
         disposables = [NSMutableArray arrayWithCapacity:0];
-        self.racDisposables = disposables;
+        self.sw_racDisposables = disposables;
     }
     return disposables;
 }
-
-
 
 
 

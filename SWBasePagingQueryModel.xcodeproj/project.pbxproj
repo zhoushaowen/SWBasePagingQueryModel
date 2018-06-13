@@ -14,6 +14,7 @@
 		3666D65320A1A07100EC030F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3666D65220A1A07100EC030F /* main.m */; };
 		3666D65C20A1A17B00EC030F /* SWBasePagingQueryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3666D65B20A1A17B00EC030F /* SWBasePagingQueryModel.m */; };
 		3666D65F20A1A83100EC030F /* MyPagingQueryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3666D65E20A1A83100EC030F /* MyPagingQueryModel.m */; };
+		36BAE80C20D0F2470038FC9D /* UIScrollView+SWExtendMJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 36BAE80B20D0F2470038FC9D /* UIScrollView+SWExtendMJRefresh.m */; };
 		36F95ABA20A2915C000F388B /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F95AB920A2915C000F388B /* TableViewController.m */; };
 		36F95ABD20A2C9F0000F388B /* UIScrollView+SWBasePagingQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F95ABC20A2C9F0000F388B /* UIScrollView+SWBasePagingQuery.m */; };
 		D278004869A91D7760246E16 /* libPods-SWBasePagingQueryModel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CDB2D9709E6E34440B3D9BB /* libPods-SWBasePagingQueryModel.a */; };
@@ -33,6 +34,8 @@
 		3666D65B20A1A17B00EC030F /* SWBasePagingQueryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWBasePagingQueryModel.m; sourceTree = "<group>"; };
 		3666D65D20A1A83100EC030F /* MyPagingQueryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyPagingQueryModel.h; sourceTree = "<group>"; };
 		3666D65E20A1A83100EC030F /* MyPagingQueryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyPagingQueryModel.m; sourceTree = "<group>"; };
+		36BAE80A20D0F2470038FC9D /* UIScrollView+SWExtendMJRefresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SWExtendMJRefresh.h"; sourceTree = "<group>"; };
+		36BAE80B20D0F2470038FC9D /* UIScrollView+SWExtendMJRefresh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SWExtendMJRefresh.m"; sourceTree = "<group>"; };
 		36F95AB820A2915C000F388B /* TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		36F95AB920A2915C000F388B /* TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		36F95ABB20A2C9F0000F388B /* UIScrollView+SWBasePagingQuery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SWBasePagingQuery.h"; sourceTree = "<group>"; };
@@ -97,6 +100,8 @@
 				3666D65B20A1A17B00EC030F /* SWBasePagingQueryModel.m */,
 				36F95ABB20A2C9F0000F388B /* UIScrollView+SWBasePagingQuery.h */,
 				36F95ABC20A2C9F0000F388B /* UIScrollView+SWBasePagingQuery.m */,
+				36BAE80A20D0F2470038FC9D /* UIScrollView+SWExtendMJRefresh.h */,
+				36BAE80B20D0F2470038FC9D /* UIScrollView+SWExtendMJRefresh.m */,
 			);
 			path = SWBasePagingQueryModel;
 			sourceTree = "<group>";
@@ -230,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3666D65F20A1A83100EC030F /* MyPagingQueryModel.m in Sources */,
+				36BAE80C20D0F2470038FC9D /* UIScrollView+SWExtendMJRefresh.m in Sources */,
 				36F95ABA20A2915C000F388B /* TableViewController.m in Sources */,
 				36F95ABD20A2C9F0000F388B /* UIScrollView+SWBasePagingQuery.m in Sources */,
 				3666D65C20A1A17B00EC030F /* SWBasePagingQueryModel.m in Sources */,
