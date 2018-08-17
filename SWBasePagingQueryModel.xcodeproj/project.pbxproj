@@ -34,6 +34,7 @@
 		3666D65B20A1A17B00EC030F /* SWBasePagingQueryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWBasePagingQueryModel.m; sourceTree = "<group>"; };
 		3666D65D20A1A83100EC030F /* MyPagingQueryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyPagingQueryModel.h; sourceTree = "<group>"; };
 		3666D65E20A1A83100EC030F /* MyPagingQueryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyPagingQueryModel.m; sourceTree = "<group>"; };
+		369DE9E621269D4D006D2D65 /* SWBasePagingQuery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWBasePagingQuery.h; sourceTree = "<group>"; };
 		36BAE80A20D0F2470038FC9D /* UIScrollView+SWExtendMJRefresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SWExtendMJRefresh.h"; sourceTree = "<group>"; };
 		36BAE80B20D0F2470038FC9D /* UIScrollView+SWExtendMJRefresh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SWExtendMJRefresh.m"; sourceTree = "<group>"; };
 		36F95AB820A2915C000F388B /* TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
@@ -102,6 +103,7 @@
 				36F95ABC20A2C9F0000F388B /* UIScrollView+SWBasePagingQuery.m */,
 				36BAE80A20D0F2470038FC9D /* UIScrollView+SWExtendMJRefresh.h */,
 				36BAE80B20D0F2470038FC9D /* UIScrollView+SWExtendMJRefresh.m */,
+				369DE9E621269D4D006D2D65 /* SWBasePagingQuery.h */,
 			);
 			path = SWBasePagingQueryModel;
 			sourceTree = "<group>";

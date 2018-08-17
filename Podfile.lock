@@ -11,7 +11,7 @@ DEPENDENCIES:
   - SWExtension
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - MBProgressHUD
     - MJRefresh
     - ReactiveObjC
@@ -25,4 +25,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 2579f5a2fd5c64d67f974b444dec85604e45a115
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3

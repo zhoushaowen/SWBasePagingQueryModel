@@ -29,8 +29,8 @@
     self.isFetchingMore = NO;
     self.fetchError = nil;
     [self asyncFetchWithPageIndex:self.currentFetchIndex completion:^(NSError *error, NSInteger totalCount, NSArray *result) {
+        self.fetchError = error;
         if(error){
-            self.fetchError = error;
             [self willChangeValueForKey:@"fetchedData"];
             [self didChangeValueForKey:@"fetchedData"];
             self.isFetching = NO;
@@ -53,8 +53,8 @@
     self.isFetchingMore = YES;
     self.fetchError = nil;
     [self asyncFetchWithPageIndex:++self.currentFetchIndex completion:^(NSError *error, NSInteger totalCount, NSArray *result) {
+        self.fetchError = error;
         if(error){
-            self.fetchError = error;
             self.currentFetchIndex--;
             [self willChangeValueForKey:@"fetchedData"];
             [self didChangeValueForKey:@"fetchedData"];

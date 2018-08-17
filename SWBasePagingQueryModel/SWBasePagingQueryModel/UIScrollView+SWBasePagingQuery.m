@@ -67,18 +67,21 @@ static void *key_racDisposables = &key_racDisposables;
                 [self.mj_footer endRefreshing];
             }
         }
-        if([self isKindOfClass:[UITableView class]]){
-            [(UITableView *)self reloadData];
-        }else if ([self isKindOfClass:[UICollectionView class]]){
-            [(UICollectionView *)self reloadData];
-        }
-    }]];
-    [self.sw_racDisposables addObject:[self.sw_pagingQueryModel rac_observeKeyPath:@"fetchError" options:NSKeyValueObservingOptionNew observer:nil block:^(id value, NSDictionary *change, BOOL causedByDealloc, BOOL affectedOnlyLastComponent) {
-        @strongify(self)
         if(self.sw_fetchListCompletedBlock){
-            self.sw_fetchListCompletedBlock(self.sw_pagingQueryModel.fetchError);
+            self.sw_fetchListCompletedBlock(self.sw_pagingQueryModel.fetchError,self.sw_pagingQueryModel.fetchedData);
         }
+//        if([self isKindOfClass:[UITableView class]]){
+//            [(UITableView *)self reloadData];
+//        }else if ([self isKindOfClass:[UICollectionView class]]){
+//            [(UICollectionView *)self reloadData];
+//        }
     }]];
+//    [self.sw_racDisposables addObject:[self.sw_pagingQueryModel rac_observeKeyPath:@"fetchError" options:NSKeyValueObservingOptionNew observer:nil block:^(id value, NSDictionary *change, BOOL causedByDealloc, BOOL affectedOnlyLastComponent) {
+//        @strongify(self)
+//        if(self.sw_fetchListCompletedBlock){
+//            self.sw_fetchListCompletedBlock(self.sw_pagingQueryModel.fetchError);
+//        }
+//    }]];
 }
 
 - (void)sw_setDefaultPagingQueryWithModel:(SWBasePagingQueryModel *)pagingQueryModel completion:(SWFetchListCompletedBlock)fetchListCompletedBlock {

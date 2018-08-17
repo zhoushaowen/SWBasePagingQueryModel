@@ -12,7 +12,7 @@
 @class MJRefreshNormalHeader;
 @class MJRefreshAutoNormalFooter;
 
-typedef void(^SWFetchListCompletedBlock)(NSError *error);
+typedef void(^SWFetchListCompletedBlock)(NSError *error,NSArray *fetchedData);
 
 @interface UIScrollView (SWBasePagingQuery)
 

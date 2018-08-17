@@ -24,9 +24,9 @@
     [super viewDidLoad];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     @weakify(self)
-    [self.tableView sw_setDefaultPagingQueryWithModel:[MyPagingQueryModel new] completion:^(NSError *error) {
+    [self.tableView sw_setDefaultPagingQueryWithModel:[MyPagingQueryModel new] completion:^(NSError *error, NSArray *fetchedData) {
         @strongify(self)
-        if(self.tableView.sw_pagingQueryModel.fetchError){
+        if(error){
             [self.view showHUDWithDetailMessage:self.tableView.sw_pagingQueryModel.fetchError.localizedDescription hideWithDelay:1.0f];
         }
     }];
