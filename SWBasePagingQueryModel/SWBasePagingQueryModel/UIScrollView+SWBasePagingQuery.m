@@ -48,7 +48,11 @@ static void *key_racDisposables = &key_racDisposables;
     [self.sw_racDisposables removeAllObjects];
     [self.sw_racDisposables addObject:[self.sw_pagingQueryModel rac_observeKeyPath:@"hasMore" options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew observer:nil block:^(id value, NSDictionary *change, BOOL causedByDealloc, BOOL affectedOnlyLastComponent) {
         @strongify(self)
-        self.mj_footer.hidden = !self.sw_pagingQueryModel.hasMore;
+        if(self.sw_pagingQueryModel.fetchedData.count < 1){
+            self.mj_footer.hidden = YES;
+        }else{
+            self.mj_footer.hidden = !self.sw_pagingQueryModel.hasMore;
+        }
     }]];
     [self.sw_racDisposables addObject:[self.sw_pagingQueryModel rac_observeKeyPath:@"isFetchingMore" options:NSKeyValueObservingOptionNew observer:nil block:^(id value, NSDictionary *change, BOOL causedByDealloc, BOOL affectedOnlyLastComponent) {
         @strongify(self)
@@ -60,7 +64,9 @@ static void *key_racDisposables = &key_racDisposables;
             [self.mj_header endRefreshing];
         }
         if(!self.sw_pagingQueryModel.hasMore){
-            self.mj_footer.hidden = NO;
+            if(self.sw_pagingQueryModel.fetchedData.count > 0){
+                self.mj_footer.hidden = NO;
+            }
             [self.mj_footer endRefreshingWithNoMoreData];
         }else{
             if(self.mj_footer.isRefreshing){
