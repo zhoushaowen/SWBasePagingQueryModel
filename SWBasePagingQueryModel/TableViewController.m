@@ -29,6 +29,7 @@
         if(error){
             [self.view showHUDWithDetailMessage:self.tableView.sw_pagingQueryModel.fetchError.localizedDescription hideWithDelay:1.0f];
         }
+        [self.tableView reloadData];
     }];
     [self.tableView.mj_header beginRefreshing];
 }
