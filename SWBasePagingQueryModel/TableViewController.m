@@ -24,14 +24,16 @@
     [super viewDidLoad];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     @weakify(self)
-    [self.tableView sw_setDefaultPagingQueryWithModel:[MyPagingQueryModel new] completion:^(NSError *error, NSArray *fetchedData) {
+    MyPagingQueryModel *model = [MyPagingQueryModel new];
+    [self.tableView sw_setDefaultPagingQueryWithModel:model enablePullRefresh:NO completion:^(NSError *error, NSArray *fetchedData) {
         @strongify(self)
         if(error){
             [self.view showHUDWithDetailMessage:self.tableView.sw_pagingQueryModel.fetchError.localizedDescription hideWithDelay:1.0f];
         }
         [self.tableView reloadData];
     }];
-    [self.tableView.mj_header beginRefreshing];
+//    [self.tableView.mj_header beginRefreshing];
+    [model fetchBeginning];
 }
 
 #pragma mark - Table view data source

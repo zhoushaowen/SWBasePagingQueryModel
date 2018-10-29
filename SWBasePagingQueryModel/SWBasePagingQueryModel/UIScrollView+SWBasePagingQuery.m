@@ -28,7 +28,15 @@ static void *key_racDisposables = &key_racDisposables;
 
 @implementation UIScrollView (SWBasePagingQuery)
 
-- (void)sw_setCustomPagingQueryWithMjHeader:(MJRefreshNormalHeader *)mjHeader mjFooter:(MJRefreshAutoNormalFooter *)mjFooter pagingQueryModel:(SWBasePagingQueryModel *)pagingQueryModel completion:(SWFetchListCompletedBlock)fetchListCompletedBlock {
+- (void)sw_setDefaultPagingQueryWithModel:(SWBasePagingQueryModel *_Nonnull)pagingQueryModel enablePullRefresh:(BOOL)isEnablePullRefresh completion:(SWFetchListCompletedBlock)fetchListCompletedBlock {
+    if(isEnablePullRefresh){
+        [self sw_setCustomPagingQueryWithMjHeader:[MJRefreshNormalHeader new] mjFooter:[MJRefreshAutoNormalFooter new] pagingQueryModel:pagingQueryModel completion:fetchListCompletedBlock];
+    }else{
+        [self sw_setCustomPagingQueryWithMjHeader:nil mjFooter:[MJRefreshAutoNormalFooter new] pagingQueryModel:pagingQueryModel completion:fetchListCompletedBlock];
+    }
+}
+
+- (void)sw_setCustomPagingQueryWithMjHeader:(MJRefreshNormalHeader *_Nullable)mjHeader mjFooter:(MJRefreshAutoNormalFooter *_Nullable)mjFooter pagingQueryModel:(SWBasePagingQueryModel *_Nonnull)pagingQueryModel completion:(SWFetchListCompletedBlock)fetchListCompletedBlock {
     self.sw_pagingQueryModel = pagingQueryModel;
     self.sw_fetchListCompletedBlock = fetchListCompletedBlock;
     @weakify(self)
@@ -84,8 +92,8 @@ static void *key_racDisposables = &key_racDisposables;
     }]];
 }
 
-- (void)sw_setDefaultPagingQueryWithModel:(SWBasePagingQueryModel *)pagingQueryModel completion:(SWFetchListCompletedBlock)fetchListCompletedBlock {
-    [self sw_setCustomPagingQueryWithMjHeader:[MJRefreshNormalHeader new] mjFooter:[MJRefreshAutoNormalFooter new] pagingQueryModel:pagingQueryModel completion:fetchListCompletedBlock];
+- (void)sw_setDefaultPagingQueryWithModel:(SWBasePagingQueryModel *_Nonnull)pagingQueryModel completion:(SWFetchListCompletedBlock)fetchListCompletedBlock; {
+    [self sw_setDefaultPagingQueryWithModel:pagingQueryModel enablePullRefresh:YES completion:fetchListCompletedBlock];
 }
 
 - (void)setSw_pagingQueryModel:(SWBasePagingQueryModel *)sw_pagingQueryModel {
