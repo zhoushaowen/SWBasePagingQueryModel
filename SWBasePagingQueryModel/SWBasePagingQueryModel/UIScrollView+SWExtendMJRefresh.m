@@ -22,9 +22,18 @@
 @implementation UIScrollView (SWExtendMJRefresh)
 
 + (void)load {
-    Method mjMethod = class_getInstanceMethod([self class], @selector(setMj_header:));
-    Method myMethod = class_getInstanceMethod([self class], @selector(setSW_Mj_header:));
-    method_exchangeImplementations(mjMethod, myMethod);
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        SEL oriSel = @selector(setMj_header:);
+        SEL repSel = @selector(setSW_Mj_header:);
+        Method mjMethod = class_getInstanceMethod([self class], oriSel);
+        Method myMethod = class_getInstanceMethod([self class], repSel);
+        if(class_addMethod([self class], oriSel, method_getImplementation(myMethod), method_getTypeEncoding(myMethod))){
+            class_replaceMethod([self class], repSel, method_getImplementation(mjMethod), method_getTypeEncoding(mjMethod));
+        }else{
+            method_exchangeImplementations(mjMethod, myMethod);
+        }
+    });
 }
 
 - (void)setSW_Mj_header:(MJRefreshHeader *)mj_header {
