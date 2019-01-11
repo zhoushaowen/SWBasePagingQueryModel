@@ -81,6 +81,10 @@
     [self doesNotRecognizeSelector:_cmd];
 }
 
+- (void)cancelFetch {
+    
+}
+
 - (NSUInteger)pageSize {
     [self doesNotRecognizeSelector:_cmd];
     return 0;
