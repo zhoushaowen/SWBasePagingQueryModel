@@ -28,7 +28,7 @@ static void *key_racDisposables = &key_racDisposables;
 
 @implementation UIScrollView (SWBasePagingQuery)
 
-- (void)sw_setDefaultPagingQueryWithModel:(SWBasePagingQueryModel *_Nonnull)pagingQueryModel enablePullRefresh:(BOOL)isEnablePullRefresh completion:(SWFetchListCompletedBlock)fetchListCompletedBlock {
+- (void)sw_setDefaultPagingQueryWithModel:(SWBasePagingQueryModel *_Nonnull)pagingQueryModel enablePullRefresh:(BOOL)isEnablePullRefresh completion:(SWFetchListCompletedBlock)fetchListCompletedBlock __deprecated_msg("Use sw_setCustomPagingQueryWithMjHeader:mjFooter:pagingQueryModel:completion:") {
     if(isEnablePullRefresh){
         [self sw_setCustomPagingQueryWithMjHeader:[MJRefreshNormalHeader new] mjFooter:[MJRefreshAutoNormalFooter new] pagingQueryModel:pagingQueryModel completion:fetchListCompletedBlock];
     }else{
@@ -36,12 +36,15 @@ static void *key_racDisposables = &key_racDisposables;
     }
 }
 
-- (void)sw_setCustomPagingQueryWithMjHeader:(MJRefreshNormalHeader *_Nullable)mjHeader mjFooter:(MJRefreshAutoNormalFooter *_Nullable)mjFooter pagingQueryModel:(SWBasePagingQueryModel *_Nonnull)pagingQueryModel completion:(SWFetchListCompletedBlock)fetchListCompletedBlock {
+- (void)sw_setCustomPagingQueryWithMjHeader:(MJRefreshNormalHeader *_Nullable)mjHeader mjFooter:(MJRefreshAutoNormalFooter *_Nullable)mjFooter pagingQueryModel:(SWBasePagingQueryModel *_Nonnull)pagingQueryModel pullRefreshBlock:(void(^)(void))pullRefreshBlock completion:(SWFetchListCompletedBlock)fetchListCompletedBlock {
     self.sw_pagingQueryModel = pagingQueryModel;
     self.sw_fetchListCompletedBlock = fetchListCompletedBlock;
     @weakify(self)
     mjHeader.refreshingBlock = ^{
         @strongify(self)
+        if(pullRefreshBlock){
+            pullRefreshBlock();
+        }
         [self.sw_pagingQueryModel fetchBeginning];
     };
     self.mj_header = mjHeader;
@@ -92,8 +95,16 @@ static void *key_racDisposables = &key_racDisposables;
     }]];
 }
 
+- (void)sw_setCustomPagingQueryWithMjHeader:(MJRefreshNormalHeader *_Nullable)mjHeader mjFooter:(MJRefreshAutoNormalFooter *_Nullable)mjFooter pagingQueryModel:(SWBasePagingQueryModel *_Nonnull)pagingQueryModel completion:(SWFetchListCompletedBlock)fetchListCompletedBlock {
+    [self sw_setCustomPagingQueryWithMjHeader:mjHeader mjFooter:mjFooter pagingQueryModel:pagingQueryModel pullRefreshBlock:nil completion:fetchListCompletedBlock];
+}
+
 - (void)sw_setDefaultPagingQueryWithModel:(SWBasePagingQueryModel *_Nonnull)pagingQueryModel completion:(SWFetchListCompletedBlock)fetchListCompletedBlock; {
-    [self sw_setDefaultPagingQueryWithModel:pagingQueryModel enablePullRefresh:YES completion:fetchListCompletedBlock];
+    [self sw_setDefaultPagingQueryWithModel:pagingQueryModel pullRefreshBlock:nil completion:fetchListCompletedBlock];
+}
+
+- (void)sw_setDefaultPagingQueryWithModel:(SWBasePagingQueryModel *)pagingQueryModel pullRefreshBlock:(void (^)(void))pullRefreshBlock completion:(SWFetchListCompletedBlock)fetchListCompletedBlock {
+    [self sw_setCustomPagingQueryWithMjHeader:[MJRefreshNormalHeader new] mjFooter:[MJRefreshAutoNormalFooter new] pagingQueryModel:pagingQueryModel pullRefreshBlock:pullRefreshBlock completion:fetchListCompletedBlock];
 }
 
 - (void)setSw_pagingQueryModel:(SWBasePagingQueryModel *)sw_pagingQueryModel {

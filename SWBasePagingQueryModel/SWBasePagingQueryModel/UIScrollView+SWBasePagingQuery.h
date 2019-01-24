@@ -25,14 +25,28 @@ typedef void(^SWFetchListCompletedBlock)(NSError *error,NSArray *fetchedData);
 - (void)sw_setDefaultPagingQueryWithModel:(SWBasePagingQueryModel *_Nonnull)pagingQueryModel completion:(SWFetchListCompletedBlock)fetchListCompletedBlock;
 
 /**
+ 为UIScrollView添加默认样式的下拉刷新和上拉加载(默认是既有下拉刷新和上拉加载更多)
+ 
+ @param pullRefreshBlock 下拉刷新的回调
+ */
+- (void)sw_setDefaultPagingQueryWithModel:(SWBasePagingQueryModel *_Nonnull)pagingQueryModel pullRefreshBlock:(void(^)(void))pullRefreshBlock completion:(SWFetchListCompletedBlock)fetchListCompletedBlock;
+
+/**
  为UIScrollView添加自定义样式的下拉刷新和上拉加载
  */
 - (void)sw_setCustomPagingQueryWithMjHeader:(MJRefreshNormalHeader *_Nullable)mjHeader mjFooter:(MJRefreshAutoNormalFooter *_Nullable)mjFooter pagingQueryModel:(SWBasePagingQueryModel *_Nonnull)pagingQueryModel completion:(SWFetchListCompletedBlock)fetchListCompletedBlock;
 
 /**
+ 为UIScrollView添加自定义样式的下拉刷新和上拉加载
+
+ @param pullRefreshBlock 下拉刷新的回调
+ */
+- (void)sw_setCustomPagingQueryWithMjHeader:(MJRefreshNormalHeader *_Nullable)mjHeader mjFooter:(MJRefreshAutoNormalFooter *_Nullable)mjFooter pagingQueryModel:(SWBasePagingQueryModel *_Nonnull)pagingQueryModel pullRefreshBlock:(void(^)(void))pullRefreshBlock completion:(SWFetchListCompletedBlock)fetchListCompletedBlock;
+
+/**
  为UIScrollView添加默认样式的下拉刷新和上拉加载,是否需要下拉刷新可以通过isEnablePullRefresh控制
  */
-- (void)sw_setDefaultPagingQueryWithModel:(SWBasePagingQueryModel *_Nonnull)pagingQueryModel enablePullRefresh:(BOOL)isEnablePullRefresh completion:(SWFetchListCompletedBlock)fetchListCompletedBlock;
+- (void)sw_setDefaultPagingQueryWithModel:(SWBasePagingQueryModel *_Nonnull)pagingQueryModel enablePullRefresh:(BOOL)isEnablePullRefresh completion:(SWFetchListCompletedBlock)fetchListCompletedBlock __deprecated_msg("Use sw_setCustomPagingQueryWithMjHeader:mjFooter:pagingQueryModel:completion:");
 
 
 @end
