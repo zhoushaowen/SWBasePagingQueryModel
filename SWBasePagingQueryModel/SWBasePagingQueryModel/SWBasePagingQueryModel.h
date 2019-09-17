@@ -28,7 +28,8 @@ static const NSInteger SWUnknownCount = 0;
  是否有更多数据支持下一页刷新
  */
 @property (nonatomic,readonly) BOOL hasMore;
-
+///是否正在刷新数据
+@property (nonatomic,readonly) BOOL isFetching;
 /**
  是否正在加载更多数据
  */
