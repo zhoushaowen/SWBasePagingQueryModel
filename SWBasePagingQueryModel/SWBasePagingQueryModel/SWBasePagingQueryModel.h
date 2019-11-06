@@ -64,7 +64,7 @@ static const NSInteger SWUnknownCount = 0;
  totalCount:分页数据的总个数,如果不知道可以传0
  result:请求到的当前页的数据
  */
-- (void)asyncFetchWithPageIndex:(NSInteger)pageIndex completion:(void(^)(NSError *error, NSInteger totalCount, NSArray *result))completedBlock;
+- (void)asyncFetchWithPageIndex:(NSInteger)pageIndex completion:(void(^_Nonnull)(NSError * _Nullable error, NSInteger totalCount, NSArray * _Nullable result))completedBlock;
 
 /**
  取消网络请求,默认什么都没做,可以重新该方法去自定义
