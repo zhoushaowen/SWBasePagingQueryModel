@@ -67,7 +67,7 @@ static const NSInteger SWUnknownCount = 0;
 - (void)asyncFetchWithPageIndex:(NSInteger)pageIndex completion:(void(^_Nonnull)(NSError * _Nullable error, NSInteger totalCount, NSArray * _Nullable result))completedBlock;
 
 /**
- 取消网络请求,默认什么都没做,可以重新该方法去自定义
+ 取消网络请求,重写该方法需要调用super
  */
 - (void)cancelFetch NS_REQUIRES_SUPER;
 
