@@ -82,7 +82,7 @@
 }
 
 - (void)cancelFetch {
-    
+    self.isFetching = NO;
 }
 
 - (NSUInteger)pageSize {

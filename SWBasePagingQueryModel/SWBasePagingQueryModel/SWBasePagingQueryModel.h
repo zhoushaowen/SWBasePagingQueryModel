@@ -69,7 +69,7 @@ static const NSInteger SWUnknownCount = 0;
 /**
  取消网络请求,默认什么都没做,可以重新该方法去自定义
  */
-- (void)cancelFetch;
+- (void)cancelFetch NS_REQUIRES_SUPER;
 
 /**
  每页数据的数量,你需要重写此方法
