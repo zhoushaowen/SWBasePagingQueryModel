@@ -24,7 +24,7 @@
 - (void)fetchBeginning {
     if(self.isFetching) return;
     self.isFetching = YES;
-    self.currentFetchIndex = 0;
+    self.currentFetchIndex = [self fetchBeginIndex];
     self.hasMore = NO;
     self.isFetchingMore = NO;
     self.fetchError = nil;
@@ -87,6 +87,10 @@
 
 - (NSUInteger)pageSize {
     [self doesNotRecognizeSelector:_cmd];
+    return 0;
+}
+
+- (NSInteger)fetchBeginIndex {
     return 0;
 }
 

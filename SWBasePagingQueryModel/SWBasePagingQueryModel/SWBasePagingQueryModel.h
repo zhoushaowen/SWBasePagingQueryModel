@@ -76,4 +76,8 @@ static const NSInteger SWUnknownCount = 0;
  */
 - (NSUInteger)pageSize;
 
+/// 从哪个索引开始刷新,默认值是0
+- (NSInteger)fetchBeginIndex;
+
+
 @end
