@@ -8,10 +8,10 @@
 
 #import "UIScrollView+SWBasePagingQuery.h"
 #import "SWBasePagingQueryModel.h"
-#import <MJRefresh.h>
-#import <NSObject+RACKVOWrapper.h>
-#import <RACEXTScope.h>
-#import <RACDisposable.h>
+#import <MJRefresh/MJRefresh.h>
+#import <ReactiveObjC/NSObject+RACKVOWrapper.h>
+#import <ReactiveObjC/RACEXTScope.h>
+#import <ReactiveObjC/RACDisposable.h>
 #import <objc/runtime.h>
 
 static void *key_pagingQueryModel = &key_pagingQueryModel;

@@ -7,11 +7,11 @@
 //
 
 #import "UIScrollView+SWExtendMJRefresh.h"
-#import <MJRefresh.h>
+#import <MJRefresh/MJRefresh.h>
 #import <objc/runtime.h>
-#import <NSObject+RACKVOWrapper.h>
-#import <RACEXTScope.h>
-#import <RACDisposable.h>
+#import <ReactiveObjC/NSObject+RACKVOWrapper.h>
+#import <ReactiveObjC/RACEXTScope.h>
+#import <ReactiveObjC/RACDisposable.h>
 
 @interface UIScrollView ()
 

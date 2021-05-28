@@ -10,6 +10,10 @@
 
 @implementation SWNormalPagingQueryModel
 
+- (NSInteger)fetchBeginIndex {
+    return 1;
+}
+
 - (void)asyncFetchWithPageIndex:(NSInteger)pageIndex completion:(void(^_Nonnull)(NSError * _Nullable error, NSInteger totalCount, NSArray * _Nullable result))completedBlock {
     [self normalAsyncFetchWithPageIndex:pageIndex completion:^(BOOL isSucess, NSString * _Nullable errorMsg, NSArray * _Nullable resultArray) {
         if(isSucess){
